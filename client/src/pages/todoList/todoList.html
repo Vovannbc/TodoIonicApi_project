@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      TodoList
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-card >
+    <ion-card-content class="todo-list-card-content">
+        <form [formGroup]="messageForm" (submit)="submitHandler()">
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input required formControlName="messageControl"></ion-input>
+            </ion-item>
+            <button ion-button color="dark" round [disabled]="messageForm.invalid"><ion-icon name="navigate" ios="ios-navigate" md="md-navigate"></ion-icon></button>
+        </form>
+    </ion-card-content>
+</ion-card>
+<!--<ion-card *ngIf="messageControl.length > 0">-->
+    <!--<ion-card-content>-->
+        <!--{{messageControl}}-->
+    <!--</ion-card-content>-->
+<!--</ion-card>-->

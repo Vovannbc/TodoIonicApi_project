@@ -5,8 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var index = require('./routes/router');
 
 var app = express();
 
@@ -22,8 +21,32 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
+
+
+
+app.all('/*', function (req, res, next) {
+    // CORS headers
+    res.header('Access-Control-Allow-Origin', '*'); // restrict it to the required domain
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    // Set custom headers for CORS
+    res.header('Access-Control-Allow-Headers', 'Content-type,Accept');
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+    } else {
+        next();
+    }
+});
+// routes
 app.use('/', index);
-app.use('/users', users);
+app.use('/users', index);
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

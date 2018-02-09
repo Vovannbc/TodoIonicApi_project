@@ -3,30 +3,38 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { TodoList } from '../pages/todoList/todoList';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpClientModule } from "@angular/common/http";
+
+import {MatButtonModule, MatCheckboxModule, MatFormFieldModule} from '@angular/material';
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    TodoList,
     ContactPage,
     HomePage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule,
+    HttpModule,
+      MatFormFieldModule,
+      MatButtonModule, MatCheckboxModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    TodoList,
     ContactPage,
     HomePage,
     TabsPage
@@ -34,7 +42,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+      HttpClientModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  ],
+    exports: [
+        MatButtonModule, MatCheckboxModule
+    ]
 })
 export class AppModule {}
