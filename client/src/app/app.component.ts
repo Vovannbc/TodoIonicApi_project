@@ -4,9 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import {TodoList} from "../pages/todoList/todoList";
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+    styleUrls: ['/src/app/app.scss']
 })
 export class MyApp {
   rootPage:any = TabsPage;

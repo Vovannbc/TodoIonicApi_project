@@ -7,6 +7,7 @@ import { TodoList } from '../pages/todoList/todoList';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { ComponentsModule } from '../components/components.module'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,6 +15,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule} from '@angular/material';
 import {HttpModule} from "@angular/http";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import {HttpModule} from "@angular/http";
     TabsPage
   ],
   imports: [
+      CommonModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     HttpModule,
       MatFormFieldModule,
-      MatButtonModule, MatCheckboxModule
+      MatButtonModule, MatCheckboxModule,
+      ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,7 +50,10 @@ import {HttpModule} from "@angular/http";
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ],
     exports: [
-        MatButtonModule, MatCheckboxModule
+        MatButtonModule, MatCheckboxModule,
+        ComponentsModule
     ]
 })
-export class AppModule {}
+export class AppModule {
+    constructor(){}
+}

@@ -12,8 +12,11 @@ router.get('/users', function(req, res, next) {
         .json({users: 'UsersValue'});
 });
 router.post('/string', function(req, res) {
-    console.log(req.body);
-    res.status(200).send('ok');
+    var receivedBody = req.body.title;
+    console.log(receivedBody);
+    res.status(200).json({
+        body: receivedBody
+    });
 });
 
 module.exports = router;

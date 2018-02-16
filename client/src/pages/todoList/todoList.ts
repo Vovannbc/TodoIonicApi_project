@@ -2,34 +2,43 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {FormControl, FormGroup} from "@angular/forms";
-import { ListModel } from './todoList.model';
+import { ReceiptModel } from '../../models/models';
 
 @Component({
   selector: 'todo-list',
-  templateUrl: './todoList.html'
+  templateUrl: './todoList.html',
+    styleUrls: ['/src/pages/todoList/todoList.scss']
 })
 
 export class TodoList {
-    public todoLists: ListModel[] = [];
+    public todoLists: ReceiptModel[] = [];
     constructor(public navCtrl: NavController,
               private http: HttpClient) {}
 
     public messageForm: FormGroup = new FormGroup({
-        messageControl: new FormControl()
+        title: new FormControl(),
+        ingredient: new FormControl()
     });
-    public inputValue :string;
+    public outputValue :string;
 
     public submitHandler () {
-        const message = new ListModel();
-        message.message = this.messageForm.controls.messageControl.value;
+        const body = new ReceiptModel();
+        body.title = this.messageForm.controls.title.value;
       console.log('submit');
       const header = new HttpHeaders();
       header.set('Content-Type', 'application/json');
-      this.http.post('http://127.0.0.1:3000/string', {val: message}, {headers: header})
+      this.http.post('http://127.0.0.1:3000/string',
+                      body,
+                      {headers: header})
           .subscribe(data => {
-              console.log(data);
               console.log(data); // data received by server
-              console.log(data);
+              // this.outputValue = data;
+          }, err => {
+              console.error(err);
           })
     }
+
+    // public viewRes (res) {
+    //     return this.outputValue.push(res.body)
+    // }
 }
