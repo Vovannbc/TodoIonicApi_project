@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { TestcompComponent } from './testcomp/testcomp';
+import { ReceiptDataComponent } from './receiptdata.component/receiptdata.component';
+import {CommonModule} from "@angular/common";
 @NgModule({
-	declarations: [TestcompComponent],
-	imports: [],
-	exports: [TestcompComponent]
+	declarations: [ReceiptDataComponent],
+	imports: [CommonModule],
+	exports: [ReceiptDataComponent]
 })
 export class ComponentsModule {}

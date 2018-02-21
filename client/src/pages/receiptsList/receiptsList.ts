@@ -5,9 +5,9 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ReceiptService} from "./receipt.service";
 
 @Component({
-  selector: 'todo-list',
+  selector: 'receiptlist',
   templateUrl: './receiptsList.html',
-    styleUrls: ['/src/pages/todoList/todoList.scss']
+    styleUrls: ['/src/pages/receiptList/receiptList.scss']
 })
 
 export class ReceiptsList implements OnInit{

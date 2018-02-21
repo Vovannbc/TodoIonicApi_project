@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      TodoList
+      ReceiptList
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -26,9 +26,12 @@
         </ion-card-content>
     </ion-card>
 
-    <ion-card *ngIf="receiptLists">
-        <ion-card-content *ngFor="let receiptTitle of receiptLists">
-            {{receiptTitle.title}}
-        </ion-card-content>
-    </ion-card>
+    <div *ngIf="receiptLists">
+        <ion-card *ngFor="let receipt of receiptLists">
+            <ion-card-content>
+                <receiptdata [receipt]="receipt"></receiptdata>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
 </ion-content>

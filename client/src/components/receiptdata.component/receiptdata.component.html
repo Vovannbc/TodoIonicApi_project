@@ -1,0 +1,7 @@
+<h1 class="center">{{receipt.title}}</h1>
+<div class="receipt-details">
+    <ul>
+        <li *ngFor="let ingredient of receipt.ingredients">{{ ingredient }}</li>
+    </ul>
+    <p>{{receipt.description}}</p>
+</div>

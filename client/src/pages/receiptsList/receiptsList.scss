@@ -1,7 +1,8 @@
-todo-list {
+receiptlist {
 
-  .todo-list-card-content {
-    margin: 20px auto;
-    width: 700px;
+  .receipt-details {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
   }
 }
