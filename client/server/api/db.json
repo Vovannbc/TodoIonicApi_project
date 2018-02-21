@@ -1,0 +1,7 @@
+{
+  "receipts": [
+    {"title": "Receipt 1", "ingredients": ["sugar", "apple"], "description": "some action to prepare"},
+    {"title": "Receipt 2", "ingredients": ["salt", "cucumber"], "description": "just description"},
+    {"title": "Receipt 3", "ingredients": ["butter", "bread"], "description": "just description again"}
+  ]
+}
