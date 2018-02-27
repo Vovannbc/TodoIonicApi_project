@@ -5,3 +5,5 @@
     </ul>
     <p>{{receipt.description}}</p>
 </div>
+<p *ngIf="statusToEdit">{{ statusToEdit }}</p>
+<receipt-controls (toggleEvent)="receiveToggleStatus($event)"></receipt-controls>

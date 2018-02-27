@@ -21,6 +21,8 @@ export class ReceiptsList implements OnInit{
         ingredient: new FormControl()
     });
 
+    data: string;
+
     // public submitHandler () {
     //     const body = new ReceiptModel();
     //     body.title = this.messageForm.controls.title.value;
@@ -50,4 +52,8 @@ export class ReceiptsList implements OnInit{
     ngOnInit(){
         this.getReceipts();
     }
+
+    // receiveStatusForEdit(data) {
+    //     this.data = data
+    // }
 }
