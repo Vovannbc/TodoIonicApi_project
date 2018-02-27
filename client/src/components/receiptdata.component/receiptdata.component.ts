@@ -10,6 +10,7 @@ export class ReceiptDataComponent implements OnInit {
 
     statusToEdit: boolean;
 
+
     constructor() {
     }
 

@@ -1,0 +1,15 @@
+<form [formGroup]="messageForm" (submit)="submitHandler()">
+  <ion-item>
+    <ion-label floating>Назва Рецепту</ion-label>
+    <ion-input required formControlName="title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Інгредієнт</ion-label>
+    <ion-input required formControlName="ingredient"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Назва Рецепту</ion-label>
+    <ion-input required formControlName="title"></ion-input>
+  </ion-item>
+  <button ion-button color="secondary" [disabled]="messageForm.invalid">Записати</button>
+</form>
