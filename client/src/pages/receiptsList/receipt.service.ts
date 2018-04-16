@@ -1,16 +1,21 @@
 import {HttpClient} from "@angular/common/http";
 import {ReceiptModel} from "../../models/models";
 import {Injectable} from "@angular/core";
-import { ReceiptFormComponent } from "../../components/receipt-form/receipt-form"
+import {Observable} from "rxjs/Observable";
+import {AngularFireDatabase} from "angularfire2/database";
+// import { ReceiptFormComponent } from "../../components/receipt-form/receipt-form"
 
 @Injectable()
 export class ReceiptService {
-    private host = "http://localhost:3000";
+    receipts: Observable<any>;
 
-    constructor(private http: HttpClient) {}
+    constructor(
+      private http: HttpClient,
+      private db: AngularFireDatabase) {
+      this.receipts = db.list('receipts').valueChanges()
+    }
 
     public getReceipts() {
-        // console.log('Receipts run');
-        return this.http.get <ReceiptModel>(this.host + '/receipts');
+        return this.receipts;
     }
 }

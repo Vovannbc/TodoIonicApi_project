@@ -17,6 +17,17 @@ import {MatButtonModule, MatCheckboxModule, MatFormFieldModule} from '@angular/m
 import {HttpModule} from "@angular/http";
 import {CommonModule} from "@angular/common";
 import {ReceiptService} from "../pages/receiptsList/receipt.service";
+import {AngularFireModule} from "angularfire2";
+import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/database";
+import {AngularFireAuthModule} from "angularfire2/auth";
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBzHFDsWBWQ8NyT7s0hG4_J7BdzAZJfPj4",
+  authDomain: "ionicreceiptproject.firebaseapp.com",
+  databaseURL: "https://ionicreceiptproject.firebaseio.com",
+  storageBucket: "your-domain-name.appspot.com",
+  messagingSenderId: '418376275899'
+};
 
 @NgModule({
   declarations: [
@@ -34,7 +45,10 @@ import {ReceiptService} from "../pages/receiptsList/receipt.service";
     HttpModule,
     MatFormFieldModule,
     MatButtonModule, MatCheckboxModule,
-    ComponentsModule
+    ComponentsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,7 +62,8 @@ import {ReceiptService} from "../pages/receiptsList/receipt.service";
     StatusBar,
     SplashScreen,
     HttpClientModule,
-      ReceiptService,
+    ReceiptService,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ],
     exports: [

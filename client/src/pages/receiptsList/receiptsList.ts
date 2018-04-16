@@ -15,17 +15,14 @@ export class ReceiptsList implements OnInit{
         public navCtrl: NavController,
         private receiptService: ReceiptService) {}
 
-
-
     data: string;
-
-
 
     getReceipts () {
         this.receiptService.getReceipts().subscribe((response) => {
             console.log(response);
             this.receiptLists = response;
-        }, () => {
+        }, (err) => {
+            console.log(err);
             console.error('Server not allowed');
         });
     }
@@ -34,7 +31,4 @@ export class ReceiptsList implements OnInit{
         this.getReceipts();
     }
 
-    // receiveStatusForEdit(data) {
-    //     this.data = data
-    // }
 }

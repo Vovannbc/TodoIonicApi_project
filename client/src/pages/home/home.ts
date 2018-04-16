@@ -32,7 +32,7 @@ export class HomePage {
     // }
 
     someObj: any;
-    httpUrl: string = 'http://127.0.0.1:3000/users';
+    httpUrl: string = 'https://ionicreceiptproject.firebaseio.com/';
 
     clickHandler () {
       console.log('clicked');
